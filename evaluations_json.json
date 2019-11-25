@@ -1,44 +1,133 @@
-{
-  "evaluations": {
-    "id": "10917",
-    "test_instance_id": 261,
-    "status": "sent",
-    "examiner_name": "Christopher Cheng",
-    "assessed_at": "14/11/2019",
-    "certification_type": "Simple",
-    "json": {
-  "entry.122374946": "B1+",
-  "entry.1581966851": "B2: Has acquired a clear, natural, pronunciation and intonation.",
-  "entry.888723862": "C1-",
-  "entry.1912596366": "C1: Can easily follow complex interactions between third parties in group discussion and debate, even on abstract, complex unfamiliar topics",
-  "entry.1223975733": "B2+",
-  "entry.1786950336": "C1: Consistently maintains a high degree of grammatical accuracy; errors are rare and difficult to spot.",
-  "entry.1222525773": "C1: Has a good command of a broad lexical repertoire allowing gaps to be readily overcome with circumlocutions; little obvious searching for expressions or avoidance strategies. Good command of idiomatic expressions and colloquialisms.",
-  "entry.1554372908": "C1: Can produce clear, smoothly flowing, well-structured speech, showing controlled use of organisational patterns, connectors and cohesive devices.",
-  "entry.128448655": "C1-",
-  "entry.1203467641": "C1-",
-  "entry.781207062": "C1-",
-  "entry.1518212951": "B2+: Good grammatical control; occasional ‘slips’ or non-systematic errors and minor flaws in sentence structure may still occur, but they are rare and can often be corrected in retrospect.",
-  "entry.836554058": "C1-",
-  "entry.1729087157": "C1-",
-  "entry.1622426097": "C1-",
-  "entry.158142824": "C1-",
-  "entry.1982074748": "C1-",
-  "entry.1635287695": [
-    "_05:       SPEAKING / speaking with a natural rhythm",
-    "_07: VOCABULARY / vocabulary",
-    "_15:      GRAMMAR / complex grammar",
-    "_13:     LISTENING / listening comprehension"
-  ],
-  "entry.1012064561": [
-    "_01:        SPEAKING / improving his/her pronunciation",
-    "_20:        GRAMMAR / working on using the right prepositions",
-    "_23:        GRAMMAR / working on word ordering"
-  ],
-  "entry.667541887": "Good comprehension skills, vocabulary range and complex grammar, the candidate is also a seemingly condifent speaker; she could improve her pronunciation skills and aspects of grammar and sentence structure (as noted)",
-  "entry.1643462855": "8",
-  "entry.799235154": "8"
-}
-  
-  }
+{ 
+   "evaluations":[ 
+      { 
+         "id":"16207",
+         "test_instance_id":"31946",
+         "status":"Sent",
+         "examiner_name":"Manuela Sass",
+         "assessed_at":"43791,7012072917",
+         "certification_type":"Simple",
+         "evaluation_goal":"Standard",
+         "payment_status":"",
+         "json":{ 
+            "entry.122374946":"B1+",
+            "entry.1581966851":"B2",
+            "entry.888723862":"C1-",
+            "entry.1912596366":"C1",
+            "entry.1223975733":"B2+",
+            "entry.1786950336":"C1",
+            "entry.1222525773":"C1",
+            "entry.1554372908":"C1",
+            "entry.128448655":"C1-",
+            "entry.1203467641":"C1-",
+            "entry.781207062":"C1-",
+            "entry.1518212951":"B2+",
+            "entry.836554058":"C1-",
+            "entry.1729087157":"C1-",
+            "entry.1622426097":"C1-",
+            "entry.158142824":"C1-",
+            "entry.1982074748":"C1-",
+            "entry.1635287695":[ 
+               "_05",
+               "_07",
+               "_15",
+               "_13"
+            ],
+            "entry.1012064561":[ 
+               "_01",
+               "_20",
+               "_23"
+            ],
+            "entry.667541887":"Good comprehension skills, vocabulary range and complex grammar, the candidate is also a seemingly condifent speaker; she could improve her pronunciation skills and aspects of grammar and sentence structure (as noted)",
+            "entry.1643462855":"8",
+            "entry.799235154":"8"
+         }
+      },
+      { 
+         "id":"15964",
+         "test_instance_id":"31370",
+         "status":"Done",
+         "examiner_name":"Jeppe Strandberg",
+         "assessed_at":"43791,7251754282",
+         "certification_type":"Detailed",
+         "evaluation_goal":"Multiple_evaluations",
+         "payment_status":"",
+         "json":{ 
+            "entry.122374946":"B1+",
+            "entry.1581966851":"B1",
+            "entry.888723862":"C2-",
+            "entry.1912596366":"C2",
+            "entry.1223975733":"B1+",
+            "entry.1786950336":"C2",
+            "entry.1222525773":"C2",
+            "entry.1554372908":"C2",
+            "entry.128448655":"C2-",
+            "entry.1203467641":"C1-",
+            "entry.781207062":"C2-",
+            "entry.1518212951":"B1+",
+            "entry.836554058":"C2-",
+            "entry.1729087157":"C2-",
+            "entry.1622426097":"C2-",
+            "entry.158142824":"C2",
+            "entry.1982074748":"C1-",
+            "entry.1635287695":[ 
+               "_05",
+               "_07",
+               "_15",
+               "_13"
+            ],
+            "entry.1012064561":[ 
+               "_01",
+               "_20",
+               "_23"
+            ],
+            "entry.667541887":"Good comprehension skills, vocabulary range and complex grammar, the candidate is also a seemingly condifent speaker; she could improve her pronunciation skills and aspects of grammar and sentence structure (as noted)",
+            "entry.1643462855":"8",
+            "entry.799235154":"8"
+         }
+      },
+      { 
+         "id":"15966",
+         "test_instance_id":"31371",
+         "status":"Done",
+         "examiner_name":"Jeppe Strandberg",
+         "assessed_at":"43791,7608225926",
+         "certification_type":"Detailed",
+         "evaluation_goal":"Multiple_evaluations",
+         "payment_status":"",
+         "json":{ 
+            "entry.122374946":"A1+",
+            "entry.1581966851":"A2",
+            "entry.888723862":"B1-",
+            "entry.1912596366":"B1",
+            "entry.1223975733":"A2+",
+            "entry.1786950336":"B1",
+            "entry.1222525773":"B1",
+            "entry.1554372908":"B1",
+            "entry.128448655":"B1-",
+            "entry.1203467641":"B1-",
+            "entry.781207062":"B1-",
+            "entry.1518212951":"A2+",
+            "entry.836554058":"B1-",
+            "entry.1729087157":"B1-",
+            "entry.1622426097":"B1-",
+            "entry.158142824":"B1-",
+            "entry.1982074748":"B1-",
+            "entry.1635287695":[ 
+               "_05",
+               "_07",
+               "_15",
+               "_13"
+            ],
+            "entry.1012064561":[ 
+               "_01",
+               "_20",
+               "_23"
+            ],
+            "entry.667541887":"Good comprehension skills, vocabulary range and complex grammar, the candidate is also a seemingly condifent speaker; she could improve her pronunciation skills and aspects of grammar and sentence structure (as noted)",
+            "entry.1643462855":"8",
+            "entry.799235154":"8"
+         }
+      }
+   ]
 }
