@@ -14,35 +14,30 @@
     var endTime = new Date().getTime();
     var timeSpent = endTime - startTime;
 // Set up event handler to produce text for the window focus event
-window.addEventListener("focus", function(event) 
-{ 
-  startTime = new Date().getTime();
-  ga('send', {
-    hitType: 'event',
-    eventCategory: 'Focus',
-    eventAction: 'focus',
-    eventLabel: 'Focus Status'
-  });
-}, false);
     
-// Set up event handler to produce text for the window focus event
-window.addEventListener("blur", function(event) 
-{ 
-  endTime = new Date().getTime();
-  timeSpent = endTime - startTime;
-  ga('send', {
-    hitType: 'timing',
-    timingCategory: 'Google Sheet',
-    timingVar: 'Usage',
-    timingValue: timeSpent
-  });
-  ga('send', {
+document.onvisibilitychange = function() { 
+  console.log("Visibility of page has changed!");
+   ga('send', {
     hitType: 'event',
     eventCategory: 'Focus',
-    eventAction: 'blur',
+    eventAction: document.visibilityState,
     eventLabel: 'Focus Status'
   });
-}, false);
+  if(document.visibilityState == "visible") {
+    startTime = new Date().getTime();
+  }
+  if(document.visibilityState == "hidden") {
+    endTime = new Date().getTime();
+    timeSpent = endTime - startTime;
+    ga('send', {
+      hitType: 'timing',
+      timingCategory: 'Google Sheet',
+      timingVar: 'Usage',
+      timingValue: timeSpent
+    });
+  }
+  
+};
     </script>  
   
 </head>
