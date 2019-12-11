@@ -24,8 +24,12 @@ window.addEventListener("blur", function(event)
 { 
   endTime = new Date().getTime();
   timeSpent = endTime - startTime;
-  _gaq.push(['_trackTiming', 'Test', 'callback_timeout', timeSpent, 'animation']);
-}, false); 
+ga('send', {
+  hitType: 'timing',
+  timingCategory: 'Google Sheet',
+  timingVar: 'Usage',
+  timingValue: timeSpent
+});
     </script>  
   
 </head>
