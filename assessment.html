@@ -16,6 +16,11 @@
 // Set up event handler to produce text for the window focus event
 document.onload = function(){
   startTime = new Date().getTime();
+   gtag('event', 'Focus Change', {
+    'event_category': 'Focus',
+    'event_label': 'Focus Status',
+    'value': 'OnLoad'
+  });
 };
     
 document.onvisibilitychange = function() { 
