@@ -17,6 +17,12 @@
 window.addEventListener("focus", function(event) 
 { 
   startTime = new Date().getTime();
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'Focus',
+    eventAction: 'focus',
+    eventLabel: 'Focus Status'
+  });
 }, false);
     
 // Set up event handler to produce text for the window focus event
@@ -29,6 +35,12 @@ window.addEventListener("blur", function(event)
     timingCategory: 'Google Sheet',
     timingVar: 'Usage',
     timingValue: timeSpent
+  });
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'Focus',
+    eventAction: 'blur',
+    eventLabel: 'Focus Status'
   });
 }, false);
     </script>  
