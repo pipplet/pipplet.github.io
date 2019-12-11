@@ -17,11 +17,10 @@
     
 document.onvisibilitychange = function() { 
   console.log("Visibility of page has changed!");
-   ga('send', {
-    hitType: 'event',
-    eventCategory: 'Focus',
-    eventAction: document.visibilityState,
-    eventLabel: 'Focus Status'
+  gtag('event', 'Focus Change', {
+    'event_category': 'Focus',
+    'event_label': 'Focus Status',
+    'value': document.visibilityState
   });
   if(document.visibilityState == "visible") {
     startTime = new Date().getTime();
@@ -29,11 +28,9 @@ document.onvisibilitychange = function() {
   if(document.visibilityState == "hidden") {
     endTime = new Date().getTime();
     timeSpent = endTime - startTime;
-    ga('send', {
-      hitType: 'timing',
-      timingCategory: 'Google Sheet',
-      timingVar: 'Usage',
-      timingValue: timeSpent
+    gtag('event', 'timing complete', {
+      'name' : 'working_on_google_sheet',
+      'value' : timeSpent
     });
   }
   
