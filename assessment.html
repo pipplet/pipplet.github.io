@@ -9,6 +9,25 @@
 
   gtag('config', 'UA-57074794-9');
 </script>
+  <script>
+    var startTime = new Date().getTime();
+    var endTime = new Date().getTime();
+    var timeSpent = endTime - startTime;
+// Set up event handler to produce text for the window focus event
+window.addEventListener("focus", function(event) 
+{ 
+  startTime = new Date().getTime();
+}, false);
+    
+// Set up event handler to produce text for the window focus event
+window.addEventListener("blur", function(event) 
+{ 
+  endTime = new Date().getTime();
+  timeSpent = endTime - startTime;
+  _gaq.push(['_trackTiming', 'Test', 'callback_timeout', timeSpent, 'animation']);
+}, false); 
+    </script>  
+  
 </head>
 <body>
 <iframe src="https://docs.google.com/spreadsheets/d/1quACr-V5NWmHByFUUXHYHu_7PHD4Tc6oL5ertg8yZa4/edit#gid=1840458933" width="100%" height="100%"></iframe>
