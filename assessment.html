@@ -24,12 +24,13 @@ window.addEventListener("blur", function(event)
 { 
   endTime = new Date().getTime();
   timeSpent = endTime - startTime;
-ga('send', {
-  hitType: 'timing',
-  timingCategory: 'Google Sheet',
-  timingVar: 'Usage',
-  timingValue: timeSpent
-});
+  ga('send', {
+    hitType: 'timing',
+    timingCategory: 'Google Sheet',
+    timingVar: 'Usage',
+    timingValue: timeSpent
+  });
+}, false);
     </script>  
   
 </head>
