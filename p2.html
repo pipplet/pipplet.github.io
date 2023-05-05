@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Interview</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #text-area {
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        let questionCount = 0;
+        var apiKey = "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";
+        let sessionMessages = [];
+
+        async function submitAnswer() {
+            const questionElement = document.getElementById('question');
+            const spinnerElement = document.getElementById('spinner');
+            const textArea = document.getElementById('text-area');
+            const userAnswer = textArea.value;
+            textArea.value = '';
+            questionElement.style.display = 'none';
+            spinnerElement.style.display = 'block';
+
+            if (questionCount == 0) {
+                const gpt4Question = await startToGPT4(userAnswer, sessionMessages);
+                displayAnswer(gpt4Question, spinnerElement, questionElement);
+                questionCount++;
+            }
+            else if (questionCount < 2) {
+                const gpt4Question = await sendToGPT4(userAnswer, sessionMessages);
+                displayAnswer(gpt4Question, spinnerElement, questionElement);
+                questionCount++;
+            } else {
+                const languageLevel = await getLanguageLevel(sessionMessages);
+                displayAnswer("Your language level is: " + languageLevel, spinnerElement, questionElement);
+            }
+        }
+
+        function displayAnswer(answer, spinnerElement, questionElement) {
+            spinnerElement.style.display = 'none';
+            questionElement.style.display = 'block';
+            document.getElementById('question').innerText = answer;
+        }
+
+        async function startToGPT4(userAnswer) {
+            sessionMessages.push({ "role": "system", "content": "You are a recruiter. You are conducting an interview. Your goal is to judge how well the job candidate can express himself/herself. Start by asking a first question and then, each time the candidate answers, reply back with another question" });
+            sessionMessages.push({ "role": "user", "content": "Hi, I am applying to be a " + userAnswer });
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': "Bearer " + apiKey
+                },
+                body: JSON.stringify({
+                    model: "gpt-4",
+                    messages: sessionMessages
+                })
+            });
+            const data = await response.json();
+            sessionMessages.push({ "role": "assistant", "content": data.choices[0].message.content });
+            return data.choices[0].message.content;
+        }
+
+        async function sendToGPT4(userAnswer) {
+            sessionMessages.push({ "role": "user", "content": userAnswer });
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': "Bearer " + apiKey
+                },
+                body: JSON.stringify({
+                    model: "gpt-4",
+                    messages: sessionMessages
+                })
+            });
+            const data = await response.json();
+            sessionMessages.push({ "role": "assistant", "content": data.choices[0].message.content });
+            return data.choices[0].message.content;
+        }
+
+        async function getLanguageLevel() {
+            sessionMessages.push({ "role": "assistant", "content": "Evaluate all the preceding messages with the role 'user' and determine the author's overall proficiency level according to the Common European Framework of Reference for Languages (CEFR) scale. The CEFR scale consists of 3 sub-levels for each major level, progressing from the most basic to the most advanced. Based on a comprehensive analysis of the three texts, identify a single CEFR level that best represents the author's proficiency. CEFR Levels: A1-, A1, A1+, A2-, A2, A2+, B1-, B1, B1+, B2-, B2, B2+, C1-, C1, C1+, C2-, C2, C2+" });
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': "Bearer " + apiKey
+                },
+                body: JSON.stringify({
+                    model: "gpt-4",
+                    messages: sessionMessages
+                })
+            });
+            const data = await response.json();
+            sessionMessages.push({ "role": "assistant", "content": data.choices[0].message.content });
+            return data.choices[0].message.content;
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-left: 20%;
+            margin-right: 20%;
+            text-align: center;
+        }
+
+        #spinner {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        #text-area {
+            width: 100%;
+            height: 150px;
+            resize: none;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Spinner CSS */
+        #spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-top-color: #3498db;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3 id="question">Hi, what job are you applying for?</h3>
+    <div id="spinner"></div>
+    <textarea id="text-area"></textarea>
+    <button onclick="submitAnswer()">Submit</button>
+</body>
+
+</html>
